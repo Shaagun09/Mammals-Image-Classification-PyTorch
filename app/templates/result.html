@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+        }
+        .container {
+            margin-top: 60px;
+            max-width: 700px;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+        }
+        .confidence {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .btn-secondary {
+            background: #0061ff;
+            border: none;
+            color: #fff;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-secondary:hover {
+            background: #004fcc;
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: #e8e8e8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <div class="card">
+            <h2 class="mb-3">Prediction Result</h2>
+            {% if prediction %}
+                <p>The uploaded image is classified as:</p>
+                <h3 class="text-primary">{{ prediction }}</h3>
+            {% elif error %}
+                <p class="text-danger">{{ error }}</p>
+            {% endif %}
+            <a href="/" class="btn btn-secondary mt-4">Try Another Image</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Mammal Classifier | Built with Flask and PyTorch</p>
+    </footer>
+</body>
+</html>
